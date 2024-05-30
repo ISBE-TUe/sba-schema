@@ -1,0 +1,56 @@
+# baseURI: https://example.org/sba-mpc-schema#
+@prefix : <https://example.org/sba-mpc-schema#> .
+
+@prefix sba: <https://example.org/sba-schema#> .
+@prefix eva: <https://example.org/sba-eva-schema#> .
+@prefix mpc: <https://example.org/sba-mpc-schema#> .
+@prefix forc: <https://example.org/sba-forecast-schema#> .
+
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix wot: <https://www.w3.org/2019/wot/td/v1#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix td: <https://www.w3.org/2019/wot/td#> .
+@prefix s3n: <http://w3id.org/s3n/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix openadr: <https://w3id.org/def/openadr#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix schema: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+#################################################################
+#     MPC Schema
+#################################################################
+
+#################################################################
+#     Classes
+#################################################################
+
+mpc:EVMPC
+  rdf:subClassOf sba:SmartBuildingAlgorithm;
+  rdfs:label "EVMPC" ;
+.
+
+mpc:OptimumEVChargingSetpoints
+  rdf:type owl:Class ;
+  rdfs:label "OptimumEVChargingSetpoints" ;
+  rdfs:subClassOf sba:AlgorithmOutput ;
+  rdfs:subClassOf mpc:OptimumSetpoints ;
+.
+
+mpc:OptimumSetpoints
+  rdf:type owl:Class ;
+  rdfs:label "OptimumSetpoints" ;
+  rdfs:subClassOf sba:AlgorithmOutput ;
+.
+
+
+mpc:EVMPCModelParameters
+  rdf:type owl:Class ;
+  rdfs:label "EVMPCModelParameters" ;
+  rdfs:subClassOf sba:ModelParameters ;
+.

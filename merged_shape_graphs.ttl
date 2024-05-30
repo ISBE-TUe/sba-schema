@@ -1,0 +1,88 @@
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/demo#AlgorithmInputShape> a sh:NodeShape ;
+    sh:property [ sh:minCount 1 ;
+            sh:node sh:NodeShape ;
+            sh:path <https://brickschema.org/schema/Brick/ref#hasExternalReference> ;
+            sh:property [ sh:hasValue <https://brickschema.org/schema/Brick/ref#TimeseriesReference> ;
+                    sh:path rdf:type ],
+                [ sh:datatype xsd:string ;
+                    sh:minCount 1 ;
+                    sh:path <https://brickschema.org/schema/Brick/ref#hasTimeseriesId> ] ],
+        [ sh:minCount 1 ;
+            sh:node sh:NodeShape ;
+            sh:path <https://brickschema.org/schema/Brick/ref#hasExternalReference> ;
+            sh:property [ sh:hasValue <https://brickschema.org/schema/Brick/ref#TimeseriesReference> ;
+                    sh:path rdf:type ],
+                [ sh:datatype xsd:string ;
+                    sh:minCount 1 ;
+                    sh:path <https://brickschema.org/schema/Brick/ref#hasTimeseriesId> ] ],
+        [ sh:minCount 1 ;
+            sh:node sh:NodeShape ;
+            sh:path <https://brickschema.org/schema/Brick/ref#hasExternalReference> ;
+            sh:property [ sh:hasValue <https://brickschema.org/schema/Brick/ref#TimeseriesReference> ;
+                    sh:path rdf:type ],
+                [ sh:datatype xsd:string ;
+                    sh:minCount 1 ;
+                    sh:path <https://brickschema.org/schema/Brick/ref#hasTimeseriesId> ] ],
+        [ sh:minCount 1 ;
+            sh:node sh:NodeShape ;
+            sh:path <https://brickschema.org/schema/Brick/ref#hasExternalReference> ;
+            sh:property [ sh:hasValue <https://brickschema.org/schema/Brick/ref#TimeseriesReference> ;
+                    sh:path rdf:type ],
+                [ sh:datatype xsd:string ;
+                    sh:minCount 1 ;
+                    sh:path <https://brickschema.org/schema/Brick/ref#hasTimeseriesId> ] ],
+        [ sh:minCount 1 ;
+            sh:node sh:NodeShape ;
+            sh:path <https://brickschema.org/schema/Brick/ref#hasExternalReference> ;
+            sh:property [ sh:hasValue <https://brickschema.org/schema/Brick/ref#TimeseriesReference> ;
+                    sh:path rdf:type ],
+                [ sh:datatype xsd:string ;
+                    sh:minCount 1 ;
+                    sh:path <https://brickschema.org/schema/Brick/ref#hasTimeseriesId> ] ],
+        [ sh:minCount 1 ;
+            sh:node sh:NodeShape ;
+            sh:path <https://brickschema.org/schema/Brick/ref#hasExternalReference> ;
+            sh:property [ sh:hasValue <https://brickschema.org/schema/Brick/ref#TimeseriesReference> ;
+                    sh:path rdf:type ],
+                [ sh:datatype xsd:string ;
+                    sh:minCount 1 ;
+                    sh:path <https://brickschema.org/schema/Brick/ref#hasTimeseriesId> ] ],
+        [ sh:minCount 1 ;
+            sh:node sh:NodeShape ;
+            sh:path <https://brickschema.org/schema/Brick/ref#hasExternalReference> ;
+            sh:property [ sh:hasValue <https://brickschema.org/schema/Brick/ref#TimeseriesReference> ;
+                    sh:path rdf:type ],
+                [ sh:datatype xsd:string ;
+                    sh:minCount 1 ;
+                    sh:path <https://brickschema.org/schema/Brick/ref#hasTimeseriesId> ] ],
+        [ sh:minCount 1 ;
+            sh:node sh:NodeShape ;
+            sh:path <https://brickschema.org/schema/Brick/ref#hasExternalReference> ;
+            sh:property [ sh:hasValue <https://brickschema.org/schema/Brick/ref#TimeseriesReference> ;
+                    sh:path rdf:type ],
+                [ sh:datatype xsd:string ;
+                    sh:minCount 1 ;
+                    sh:path <https://brickschema.org/schema/Brick/ref#hasTimeseriesId> ] ],
+        [ sh:minCount 1 ;
+            sh:node sh:NodeShape ;
+            sh:path <https://brickschema.org/schema/Brick/ref#hasExternalReference> ;
+            sh:property [ sh:hasValue <https://brickschema.org/schema/Brick/ref#TimeseriesReference> ;
+                    sh:path rdf:type ],
+                [ sh:datatype xsd:string ;
+                    sh:minCount 1 ;
+                    sh:path <https://brickschema.org/schema/Brick/ref#hasTimeseriesId> ] ] ;
+    sh:targetClass brick:Electric_Power_Sensor,
+        brick:Outside_Air_Temperature_Sensor,
+        brick:Solar_Radiance_Sensor,
+        brick:Wind_Speed_Sensor,
+        <https://example.org/sba-forecast-schema#BuildingLoadForecastModelParameters>,
+        <https://example.org/sba-forecast-schema#BuildingLoadForecastTrainedModel>,
+        <https://example.org/sba-schema#OutdoorTemperatureForecast>,
+        <https://example.org/sba-schema#SolarRadianceForecast>,
+        <https://example.org/sba-schema#WindSpeedForecast> .
+

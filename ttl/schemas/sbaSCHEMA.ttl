@@ -1,0 +1,174 @@
+# baseURI: https://example.org/sba-schema#
+@prefix : <https://example.org/sba-schema#> .
+
+@prefix sba: <https://example.org/sba-schema#> .
+@prefix eva: <https://example.org/sba-ev-schema#> .
+@prefix mpc: <https://example.org/sba-mpc-schema#> .
+@prefix forc: <https://example.org/sba-forecast-schema#> .
+
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix wot: <https://www.w3.org/2019/wot/td/v1#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix td: <https://www.w3.org/2019/wot/td#> .
+@prefix s3n: <http://w3id.org/s3n/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix openadr: <https://w3id.org/def/openadr#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix sba: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+#################################################################
+#     Smart Building Schema
+#################################################################
+
+#################################################################
+#     Extensions
+#################################################################
+
+brick:Point
+  rdf:type owl:Class ;
+  rdfs:label "Point" ;
+  rdfs:subClassOf ssn:Input ;
+.
+
+sba:MachineLearningModel
+  rdf:type owl:Class ;
+  rdfs:label "MachineLearningModel" ;
+  rdfs:subClassOf ssn:Input ;
+.
+
+sba:ModelParameters
+  rdf:type owl:Class ;
+  rdfs:label "ModelParameters" ;
+  rdfs:subClassOf ssn:Input ;
+.
+
+sba:Forecast
+  rdf:type owl:Class ;
+  rdfs:label "Forecast" ;
+  rdfs:subClassOf ssn:Input ;
+.
+
+ssn:Output
+  rdf:type owl:Class ;
+  rdfs:label "Output" ;
+  rdfs:subClassOf ssn:Input ;
+.
+
+#################################################################
+#     Classes
+#################################################################
+
+sba:SmartBuildingAlgorithm
+  rdf:type owl:Class ;
+  rdfs:label "SmartBuildingAlgorithm" ;
+  rdfs:subClassOf sosa:Procedure  ;
+  ssn:hasInput ssn:Input ;
+  ssn:hasOutput ssn:Output ;
+.
+
+sba:MachineLearningModel
+  rdf:type owl:Class ;
+  rdfs:label "TrainedMLModel" ;
+.
+
+sba:ModelParameters
+  rdf:type owl:Class ;
+  rdfs:label "ModelParameters" ;
+.
+
+sba:WindSpeedForecast
+  rdf:type owl:Class ;
+  rdfs:label "WindSpeedForecast" ;
+  rdfs:subClassOf sba:WeatherForecast ;
+.
+
+sba:SolarRadianceForecast
+  rdf:type owl:Class ;
+  rdfs:label "SolarRadianceForecast" ;
+  rdfs:subClassOf sba:WeatherForecast ;
+.
+
+sba:OutdoorTemperatureForecast
+  rdf:type owl:Class ;
+  rdfs:label "OutdoorTemperatureForecast" ;
+  rdfs:subClassOf sba:WeatherForecast ;
+.
+
+sba:BuildingLoadForecast
+  rdf:type owl:Class ;
+  rdfs:label "BuildingLoadForecast" ;
+  rdfs:subClassOf sba:Forecast ;
+.
+
+sba:PerformanceKPI
+  rdf:type owl:Class ;
+  rdfs:label "PerformanceKPI" ;
+.
+
+sba:WeatherForecast
+  rdf:type owl:Class ;
+  rdfs:label "WeatherForecast" ;
+  rdfs:subClassOf sba:Forecast;
+.
+
+sba:Forecast
+  rdf:type owl:Class ;
+  rdfs:label "Forecast" ;
+.
+
+### MPC###
+
+sba:PVForecast
+  rdf:type owl:Class ;
+  rdfs:label "PVForecast" ;
+  rdfs:subClassOf sba:Forecast ;
+.
+
+sba:ElectricityPriceForecast
+  rdf:type owl:Class ;
+  rdfs:label "ElectricityPriceForecast" ;
+  rdfs:subClassOf sba:Forecast ;
+.
+
+#################################################################
+#     Object properties
+#################################################################
+
+sba:hasPerformanceKPI
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Relation between a model and its performance KPI" ;
+  rdfs:label "hasPerformanceKPI" ;
+  rdfs:range sba:PerformanceKPI ;
+  rdfs:domain sba:SmartBuildingAlgorithm ;
+.
+
+#################################################################
+#     Data Properties
+#################################################################
+
+# sba:kpivalue
+# 	rdf:type rdf:Property, owl:DatatypeProperty ;
+#     rdfs:label "kpivalue" ;
+#     rdfs:domain sba:PerformanceKPI ;
+#     rdfs:range xsd:string 
+# .
+
+# sba:kpiname
+# 	rdf:type rdf:Property ;
+#     rdfs:label "kpiname" ;
+#     rdfs:domain sba:PerformanceKPI ;
+#     rdfs:range xsd:string 
+# .
+
+# sba:kpidescription
+# 	rdf:type rdf:Property ;
+#     rdfs:label "kpidescription" ;
+#     rdfs:domain sba:PerformanceKPI ;
+#     rdfs:range xsd:string 
+# .

@@ -1,0 +1,68 @@
+# baseURI: http://example.org/demo#
+@prefix : <http://example.org/demo#> .
+@prefix inst: <http://example.org/demo#> .
+
+@prefix sba: <https://example.org/sba-schema#> .
+@prefix eva: <https://example.org/sba-eva-schema#> .
+@prefix mpc: <https://example.org/sba-mpc-schema#> .
+@prefix forc: <https://example.org/sba-forecast-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix wot: <https://www.w3.org/2019/wot/td/v1#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix td: <https://www.w3.org/2019/wot/td#> .
+@prefix s3n: <http://w3id.org/s3n/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix openadr: <https://w3id.org/def/openadr#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix schema: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+
+#################################################################
+#                 EV Schedule Instances
+#################################################################
+
+
+inst:bldgSmartChargingEVScheduleAlgorithm a eva:EVScheduleAlgorithm ;
+    ssn:hasInput 
+        inst:bldgEVScheduleParameters ,
+        inst:bldgEVUserInputData ,
+        inst:bldgEVChargerEnergyMeter_1 ,
+        inst:bldgEVChargerEnergyMeter_2 ,
+        inst:bldgEVChargerEnergyMeter_3 ,
+        inst:bldgEVChargerEnergyMeter_4 ;
+    ssn:hasOutput inst:bldgEVSheduleAlgorithmOutput  ;
+.
+
+inst:bldgEVScheduleParameters a eva:EVScheduleModelParameters ;
+rdfs:label "EVScheduleParameters" ;
+    ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId "ev-schedule-parameters" ;
+    ref:storedAt  inst:appdata ;
+  ] ;
+.
+
+inst:bldgEVUserInputData a eva:EVUserInput ;
+rdfs:label "EVUserInputData" ;
+    ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId "ev-user-input" ;
+    ref:storedAt  inst:welkomkropman ;
+  ] ;
+.
+
+inst:bldgEVSheduleAlgorithmOutput a eva:EVScheduleOutput ;
+rdfs:label "EVSheduleAlgorithmOutput" ;
+    ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId "ev-schedule-output" ;
+    ref:storedAt  inst:appdata ;
+  ] ;
+.
+

@@ -1,0 +1,30 @@
+
+@prefix inst: <http://example.org/demo#> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix sba: <https://example.org/sba-schema#> .
+@prefix eva: <https://example.org/sba-ev-schema#> .
+@prefix mpc: <https://example.org/sba-mpc-schema#> .
+@prefix forc: <https://example.org/sba-forecast-schema#> .
+
+inst:AlgorithmInputShape
+    a sh:NodeShape ;
+    sh:targetClass sba:OutdoorTemperatureForecast ;
+    sh:property [
+        sh:path ref:hasExternalReference ;
+        sh:minCount 1 ;
+        sh:node sh:NodeShape ;
+        sh:property [
+            sh:path rdf:type ;
+            sh:hasValue ref:TimeseriesReference ;
+        ] ;
+        sh:property [
+            sh:path ref:hasTimeseriesId ;
+            sh:minCount 1 ;
+            sh:datatype xsd:string ;
+        ] ;
+    ] .
+

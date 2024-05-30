@@ -1,0 +1,63 @@
+# baseURI: https://example.org/sba-eva_schema#
+@prefix : <https://example.org/sba-eva_schema#> .
+
+@prefix sba: <https://example.org/sba-schema#> .
+@prefix eva: <https://example.org/sba-eva-schema#> .
+@prefix mpc: <https://example.org/sba-mpc-schema#> .
+@prefix forc: <https://example.org/sba-forecast-schema#> .
+
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix wot: <https://www.w3.org/2019/wot/td/v1#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix td: <https://www.w3.org/2019/wot/td#> .
+@prefix s3n: <http://w3id.org/s3n/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix openadr: <https://w3id.org/def/openadr#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix schema: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+
+#################################################################
+#   Classes
+#################################################################
+
+eva:EVScheduleAlgorithm
+  rdf:subClassOf sba:SmartBuildingAlgorithm ;
+  rdfs:label "EVScheduleAlgorithm" ;
+.
+
+eva:EVUserInput
+  rdf:type owl:Class ;
+  rdfs:label "EVUserInput" ;
+  rdfs:subClassOf sba:AlgorithmInput ;
+.
+
+eva:EVScheduleOutput
+  rdf:type owl:Class ;
+  rdfs:label "EVScheduleOutput" ;
+  rdfs:comment "Represents the processed EV schedule which is currently used as the input to the MPC. Containes information about the station id, arrival time, departure time, kwh expected, kwh charged and kwh remaining for charging." ;
+  rdfs:subClassOf sba:AlgorithmOutput ;
+.
+
+eva:EVScheduleModelParameters
+  rdf:type owl:Class ;
+  rdfs:label "EVScheduleModelParameters" ;
+  rdfs:subClassOf sba:ModelParameters ;
+.
+
+#################################################################
+#   Data Property
+#################################################################
+
+eva:identifier
+	rdf:type rdf:Property, owl:DatatypeProperty ;
+    rdfs:label "ID" ;
+    rdfs:domain brick:Electric_Vehicle_Charging_Port ;
+    rdfs:range xsd:string
+.

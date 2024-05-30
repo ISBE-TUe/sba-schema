@@ -1,0 +1,74 @@
+# baseURI: https://example.org/demo#
+@prefix : <https://example.org/demo#> .
+@prefix inst: <http://example.org/demo#> .
+
+@prefix sba: <https://example.org/sba-schema#> .
+@prefix eva: <https://example.org/sba-eva-schema#> .
+@prefix mpc: <https://example.org/sba-mpc-schema#> .
+@prefix forc: <https://example.org/sba-forecast-schema#> .
+
+@prefix em-kpi:	<http://energy.linkeddata.es/em-kpi/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix wot: <https://www.w3.org/2019/wot/td/v1#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix td: <https://www.w3.org/2019/wot/td#> .
+@prefix s3n: <http://w3id.org/s3n/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix openadr: <https://w3id.org/def/openadr#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix schema: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+
+#################################################################
+#                 Forecast Algorithm Instances
+#################################################################
+
+
+inst:bldgLoadForecastAlgorithm a forc:LoadForecastModel ;
+    ssn:hasInput 
+        inst:bldgTrainedRFModel ,
+        inst:bldgForecastModelParameters ,
+        inst:bldg_virtual_power ,
+        inst:bldgOutdoorTemperatureSensor ,
+        inst:bldgWindSpeedSensor ,
+        inst:bldgSolarRadianceSensor ,
+        inst:bldgWindSpeedForecast ,
+        inst:bldgSolarRadianceForecast ,
+        inst:bldgOutdoorTemperatureForecast 
+        ;
+    ssn:hasOutput inst:bldgLoadForecastAlgorithmOutput ;
+.
+
+inst:bldgTrainedRFModel a forc:BuildingLoadForecastModel ;
+rdfs:label "TrainedRFModel" ;
+    ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId "rf_model.sav" ;
+    ref:storedAt  inst:appdata ;
+  ] ;
+.
+
+inst:bldgForecastModelParameters a forc:BuildingLoadForecastModelParameters ;
+rdfs:label "ForecastModelParameters" ;
+    ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId "forecast-model-parameters" ;
+    ref:storedAt  inst:appdata ;
+  ] ;
+.
+
+inst:bldgLoadForecastAlgorithmOutput a forc:BuildingLoadForecast
+;
+rdfs:label "LoadForecastAlgorithmOutput" ;
+    ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId "loadforecast" ;
+    ref:storedAt  inst:appdata ;
+  ] ;
+.

@@ -1,0 +1,145 @@
+# baseURI: http://example.org/demo#
+@prefix : <http://example.org/demo#> .
+@prefix inst: <http://example.org/demo#> .
+
+@prefix sba: <https://example.org/sba-schema#> .
+@prefix eva: <https://example.org/sba-eva-schema#> .
+@prefix mpc: <https://example.org/sba-mpc-schema#> .
+@prefix forc: <https://example.org/sba-forecast-schema#> .
+
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix wot: <https://www.w3.org/2019/wot/td/v1#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix td: <https://www.w3.org/2019/wot/td#> .
+@prefix s3n: <http://w3id.org/s3n/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix openadr: <https://w3id.org/def/openadr#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+###########################################################
+#                    bldg Instances
+###########################################################
+
+inst:bldgAggregatedmeter a brick:Electrical_Meter ;
+  brick:hasPoint inst:building_main_meter ;
+  brick:hasSubMeter inst:submeter_pv, inst:submeter_hvac_virtual, 
+                    inst:submeter_battery, inst:submeter_evstation1, 
+                    inst:submeter_evstation2 ;
+.
+
+inst:building_main_meter  a brick:Electric_Power_Sensor ;
+rdfs:label "BuildingElectricPowerMain" ;
+  brick:hasUnit unit:KiloW ;
+  ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId  "" ;
+    ref:storedAt  inst:insiteview ;
+  ] ;
+.
+
+inst:bldgLightmeter a brick:Electrical_Meter ;
+    brick:hasPoint  inst:lighting_power ;
+.
+
+inst:bldgPowermeter a brick:Building_Electrical_Meter ;
+  brick:hasPoint inst:bldg_virtual_power ;
+    brick:isVirtualMeter [ brick:value true ];
+.
+
+inst:submeter_hvac_virtual a brick:Electrical_Meter ;
+  brick:hasPoint inst:bldg_hvac_virtual_power ;
+.
+
+# not a physical meter, but calculates hvac power
+inst:bldg_hvac_virtual_power a brick:Electric_Power_Sensor ;
+rdfs:label "BuildingHVACPower" ;
+    brick:hasUnit unit:KiloW ;
+  ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId  "" ;
+    ref:storedAt  inst:appdata ;
+  ] ;
+.
+# not a physical meter, but calculates total building power
+inst:bldg_virtual_power a brick:Electric_Power_Sensor ;
+rdfs:label "Building Load (kW)" ;
+    brick:hasUnit unit:KiloW ;
+    brick:isVirtualMeter [ brick:value true ];
+  ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId  "" ;
+    ref:storedAt  inst:insitereports ;
+  ] ;
+.
+
+inst:lighting_power a brick:Electric_Power_Sensor ;
+rdfs:label "BuildingLightingPower" ;
+    brick:hasUnit unit:KiloW ;
+      ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId  "" ;
+    ref:storedAt  inst:insiteview ;
+  ] ;
+.
+
+inst:submeter_pv  a   brick:Electrical_Meter ;
+    brick:hasPoint  inst:pv_power ;
+.
+
+inst:pv_power a brick:Electric_Power_Sensor ;
+rdfs:label "BuildingPVPower" ;
+    brick:hasUnit unit:KiloW ;
+  ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId  "" ; 
+    ref:storedAt  inst:insiteview ;
+  ] ;
+.
+inst:submeter_battery  a   brick:Electrical_Meter ;
+    brick:hasPoint  inst:battery_power ;
+.
+
+inst:battery_power a brick:Electric_Power_Sensor ;
+rdfs:label "BuildingBatterPower" ;
+    brick:hasUnit unit:KiloW ;
+  ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId  "" ; 
+    ref:storedAt  inst:insiteview ;
+  ] ;
+.
+inst:submeter_evstation1  a   brick:Electrical_Meter ;
+    brick:hasPoint  inst:evstation1_power ;
+.
+
+inst:evstation1_power a brick:Electric_Power_Sensor ;
+rdfs:label "/" ;
+    brick:hasUnit unit:W ;
+  ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId  "" ; 
+    ref:storedAt  inst:insiteview ;
+  ] ;
+.
+inst:submeter_evstation2  a   brick:Electrical_Meter ;
+    brick:hasPoint  inst:evstation2_power ;
+.
+
+inst:evstation2_power a brick:Electric_Power_Sensor ;
+rdfs:label "/" ;
+    brick:hasUnit unit:W ;
+  ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId  "e" ; 
+    ref:storedAt  inst:insiteview ;
+  ] ;
+.

@@ -1,0 +1,61 @@
+# baseURI: http://example.org/demo#
+@prefix : <http://example.org/demo#> .
+@prefix inst: <http://example.org/demo#> .
+
+@prefix sba: <https://example.org/sba-schema#> .
+@prefix eva: <https://example.org/sba-eva-schema#> .
+@prefix mpc: <https://example.org/sba-mpc-schema#> .
+@prefix forc: <https://example.org/sba-forecast-schema#> .
+
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix wot: <https://www.w3.org/2019/wot/td/v1#> .
+@prefix saref: <https://w3id.org/saref#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix td: <https://www.w3.org/2019/wot/td#> .
+@prefix s3n: <http://w3id.org/s3n/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix openadr: <https://w3id.org/def/openadr#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix brick: <https://brickschema.org/schema/Brick#> .
+@prefix ref: <https://brickschema.org/schema/Brick/ref#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix schema: <https://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+
+
+#################################################################
+#                 MPC Algorithm Instances
+#################################################################
+
+
+inst:bldgSmartChargingMPCAlgorithm a mpc:EVMPC ;
+    ssn:hasInput 
+        inst:bldgMPCParameters ,
+        inst:bldgLoadForecastAlgorithmOutput ,
+        inst:bldgPVForecast ,
+        inst:bldgEVSheduleAlgorithmOutput , 
+        inst:bldgElectricityPriceForecast 
+        ;
+    ssn:hasOutput inst:bldgSmartChargingMPCOutput ;
+.
+
+inst:bldgMPCParameters a mpc:EVMPCModelParameters ;
+rdfs:label "MPCParameters" ;
+    ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId "c29fb1d7-57b2-487f-9456-5aa3e6900520" ;
+    ref:storedAt  inst:appdata ;
+  ] ;
+.
+
+inst:bldgSmartChargingMPCOutput a mpc:OptimumEVChargingSetpoints ;
+rdfs:label "SmartChargingMPCOutput" ;
+    ref:hasExternalReference [
+    a ref:TimeseriesReference ;
+    ref:hasTimeseriesId "4a911207-12e1-4c7a-88b7-a217de337c8c" ;
+    ref:storedAt  inst:appdata ;
+  ] ;
+    ref:hasExternalReference inst:appdata ;
+.
