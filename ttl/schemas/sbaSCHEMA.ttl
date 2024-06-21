@@ -128,7 +128,7 @@ sba:Forecast
 sba:PVForecast
   rdf:type owl:Class ;
   rdfs:label "PVForecast" ;
-  rdfs:comment "PV generation forecast."
+  rdfs:comment "PV generation forecast." ;
   rdfs:subClassOf sba:Forecast ;
 .
 
@@ -149,11 +149,6 @@ sba:hasPerformanceKPI
   rdfs:range sba:PerformanceKPI ;
   rdfs:domain sba:SmartBuildingAlgorithm ;
 .
-
-sba:hasLocation 
-  rdf:type owl:ObjectProperty ;
-  rdfs:domain sba:WeatherForecast ;
-  rdfs:range 
 
 #################################################################
 #     Data Properties
