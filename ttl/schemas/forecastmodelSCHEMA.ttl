@@ -28,9 +28,10 @@
 #     Classes
 #################################################################
 
-forc:LoadForecastModel
+forc:LoadForecastAlgorithm
   rdfs:subClassOf sba:SmartBuildingAlgorithm ;
   rdfs:label "LoadForecastModel" ;
+  rdfs:comment "The algorithm forecasts the building electricity load withing the given starting time (6.00 a.m) and end time (6.00 p.m)."
 .
 
 forc:BuildingLoadForecast
@@ -43,7 +44,7 @@ forc:BuildingLoadForecast
 forc:BuildingLoadForecastModel
   rdf:type owl:Class ;
   rdfs:label "BuildingLoadForecastModel" ;
-  rdfs:subClassOf sba:TrainedModel ;
+  rdfs:subClassOf sba:MachineLearningModel ;
 .
 
 forc:BuildingLoadForecastModelParameters
