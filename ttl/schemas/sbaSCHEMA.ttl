@@ -20,6 +20,7 @@
 @prefix bot: <https://w3id.org/bot#> .
 @prefix ssn: <http://www.w3.org/ns/ssn/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix weather: <https://bimerr.iot.linkeddata.es/def/weather#> .
 
 #################################################################
 #     Smart Building Schema
@@ -79,7 +80,7 @@ sba:AlgorithmOutput
 
 sba:MachineLearningModel
   rdf:type owl:Class ;
-  rdfs:label "TrainedMLModel" ;
+  rdfs:label "MachineLearningModel" ;
 .
 
 sba:WindSpeedForecast
@@ -114,7 +115,7 @@ sba:PerformanceKPI
 sba:WeatherForecast
   rdf:type owl:Class ;
   rdfs:label "WeatherForecast" ;
-  rdfs:subClassOf sba:Forecast;
+  rdfs:subClassOf weather:WeatherProperty ;
 .
 
 sba:Forecast
@@ -127,6 +128,7 @@ sba:Forecast
 sba:PVForecast
   rdf:type owl:Class ;
   rdfs:label "PVForecast" ;
+  rdfs:comment "PV generation forecast."
   rdfs:subClassOf sba:Forecast ;
 .
 
@@ -147,6 +149,11 @@ sba:hasPerformanceKPI
   rdfs:range sba:PerformanceKPI ;
   rdfs:domain sba:SmartBuildingAlgorithm ;
 .
+
+sba:hasLocation 
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain sba:WeatherForecast ;
+  rdfs:range 
 
 #################################################################
 #     Data Properties
