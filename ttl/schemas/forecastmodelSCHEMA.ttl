@@ -29,7 +29,7 @@
 #################################################################
 
 forc:LoadForecastModel
-  rdf:subClassOf sba:SmartBuildingAlgorithm ;
+  rdfs:subClassOf sba:SmartBuildingAlgorithm ;
   rdfs:label "LoadForecastModel" ;
 .
 

@@ -30,7 +30,7 @@
 #################################################################
 
 mpc:EVMPC
-  rdf:subClassOf sba:SmartBuildingAlgorithm;
+  rdfs:subClassOf sba:SmartBuildingAlgorithm;
   rdfs:label "EVMPC" ;
   rdfs:comment "Model Predictive Control Algorithm to optimize the charging behaviour of Electric Vehicles for Demand Side Management. Runs every x minutes from starting time to end time as defined by the scheduler." ;
 .

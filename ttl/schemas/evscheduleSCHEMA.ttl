@@ -27,7 +27,7 @@
 #################################################################
 
 eva:EVScheduleAlgorithm
-  rdf:subClassOf sba:SmartBuildingAlgorithm ;
+  rdfs:subClassOf sba:SmartBuildingAlgorithm ;
   rdfs:label "EVScheduleAlgorithm" ;
 .
 
