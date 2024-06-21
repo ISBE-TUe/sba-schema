@@ -19,7 +19,6 @@
 @prefix ref: <https://brickschema.org/schema/Brick/ref#> .
 @prefix bot: <https://w3id.org/bot#> .
 @prefix ssn: <http://www.w3.org/ns/ssn/> .
-@prefix sba: <https://schema.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 #################################################################
@@ -72,14 +71,15 @@ sba:SmartBuildingAlgorithm
   ssn:hasOutput ssn:Output ;
 .
 
+sba:AlgorithmOutput
+  rdf:type owl:Class ;
+  rdfs:label "AlgorithmOutput" ;
+  rdfs:subClassOf ssn:Input, ssn:Output  ;
+.
+
 sba:MachineLearningModel
   rdf:type owl:Class ;
   rdfs:label "TrainedMLModel" ;
-.
-
-sba:ModelParameters
-  rdf:type owl:Class ;
-  rdfs:label "ModelParameters" ;
 .
 
 sba:WindSpeedForecast

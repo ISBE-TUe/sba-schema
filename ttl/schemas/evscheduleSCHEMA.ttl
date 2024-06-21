@@ -19,7 +19,6 @@
 @prefix ref: <https://brickschema.org/schema/Brick/ref#> .
 @prefix bot: <https://w3id.org/bot#> .
 @prefix ssn: <http://www.w3.org/ns/ssn/> .
-@prefix schema: <https://schema.org/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 
 
