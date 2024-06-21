@@ -30,7 +30,7 @@
 #################################################################
 
 
-inst:bldgLoadForecastAlgorithm a forc:LoadForecastModel ;
+inst:bldgLoadForecastAlgorithm a forc:LoadForecastAlgorithm ;
     ssn:hasInput 
         inst:bldgTrainedRFModel ,
         inst:bldgForecastModelParameters ,
