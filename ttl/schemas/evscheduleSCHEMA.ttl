@@ -1,5 +1,4 @@
 # baseURI: https://example.org/sba-eva_schema#
-@prefix : <https://example.org/sba-eva_schema#> .
 
 @prefix sba: <https://example.org/sba-schema#> .
 @prefix eva: <https://example.org/sba-eva-schema#> .

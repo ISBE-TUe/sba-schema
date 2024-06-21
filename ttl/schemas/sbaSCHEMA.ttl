@@ -1,5 +1,4 @@
 # baseURI: https://example.org/sba-schema#
-@prefix : <https://example.org/sba-schema#> .
 
 @prefix sba: <https://example.org/sba-schema#> .
 @prefix eva: <https://example.org/sba-ev-schema#> .
@@ -76,11 +75,6 @@ sba:AlgorithmOutput
   rdf:type owl:Class ;
   rdfs:label "AlgorithmOutput" ;
   rdfs:subClassOf ssn:Input, ssn:Output  ;
-.
-
-sba:MachineLearningModel
-  rdf:type owl:Class ;
-  rdfs:label "MachineLearningModel" ;
 .
 
 sba:WindSpeedForecast
